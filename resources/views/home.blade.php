@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in!!!!') }}
+
+                    <button href="{{ route('books.index') }}" type="button" class="btn btn-default">books</button>
+
                 </div>
             </div>
         </div>
