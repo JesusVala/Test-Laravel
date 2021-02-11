@@ -13,10 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('books', 'BookController');
+
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/books', 'BookController@index')->name('books.index');
+
+Route::get('/', function () {
+    if(Auth::check()) {
+        return redirect()->route('books.index');
+    }
+
+    return view('welcome');
+});
